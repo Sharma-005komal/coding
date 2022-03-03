@@ -1,0 +1,35 @@
+//Counting words with a given prefix
+
+
+
+class Solution {
+public:
+    int prefixCount(vector<string>& words, string pref) {
+        int s = pref.length();
+        int count = 0;
+        for(int i=0; i<words.size(); i++)
+        {
+             
+             int j = 0;
+            int x = 0;
+            while(j < s && x < s)
+            {
+                if(words[i][j] == pref[x] && x != (s-1))
+                {
+                    j++;
+                    x++;
+                }
+                if(words[i][j] != pref[x])
+                {
+                    break;
+                }
+                if(words[i][j] == pref[x] && x == (s-1))
+                {
+                    count++;
+                    break;
+                }
+            }
+        }
+        return count;
+    }
+};
